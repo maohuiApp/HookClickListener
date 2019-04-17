@@ -1,0 +1,25 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    // gradle sdk
+    compile gradleApi()
+    // groovy sdk
+    compile localGroovy()
+    // 可以引用其它库
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.tools.build:gradle-api:3.3.2'
+    implementation 'com.android.tools.build:gradle:3.3.2'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //本地的Maven地址
+            repository(url: 'file://D:/maven-lib/')
+        }
+    }
+}
+
+group='com.hooyee.plugin.asm'
+version='1.0.0'

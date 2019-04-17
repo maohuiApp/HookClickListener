@@ -1,1 +1,1 @@
-include ':app', ':hook-api'
+include ':app', ':hook-api', ':plugin'
